@@ -1,0 +1,76 @@
+{
+  "name": "@fav/prop",
+  "version": "0.0.0",
+  "description": "Function set related to object properties for all versions of Node.js and major browsers.",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "web/"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "test": "mocha",
+    "coverage": "nyc --reporter=lcov --reporter=text-summary npm test",
+    "coveralls": "nyc --reporter=text-lcov npm test | coveralls",
+    "web:build": "npm run web:build-src && npm run web:build-test",
+    "web:build-src": "browserify index.js --standalone fav.prop -o web/fav.prop.js && cd web && uglifyjs fav.prop.js --compress --mangle -o fav.prop.min.js --source-map url=fav.prop.min.js.map",
+    "web:build-test": "node tool/mktest.js",
+    "chrome:install": "npm i --no-save mocha-chrome",
+    "chrome:test": "mocha-chrome test/web/browser-test.html",
+    "phantom:install": "npm i --no-save phantomjs-prebuilt mocha-phantomjs",
+    "phantom:test": "mocha-phantomjs -p node_modules/.bin/phantomjs test/web/browser-test.html",
+    "mkdoc": "node tool/mkdoc.js",
+    "build": "npm run lint && npm run coverage && npm run mkdoc && npm run web:build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sttk/fav-prop.git"
+  },
+  "keywords": [
+    "prop",
+    "object",
+    "properties",
+    "fav"
+  ],
+  "author": "Takayuki Sato",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sttk/fav-prop/issues"
+  },
+  "homepage": "https://github.com/sttk/fav-prop#readme",
+  "devDependencies": {
+    "@fav/type.is-plain-object": "^1.0.0",
+    "@xslet/platform": "^0.2.0",
+    "browserify": "^14.4.0",
+    "chai": "^3.5.0",
+    "coveralls": "^2.13.1",
+    "eslint": "^4.3.0",
+    "marked": "^0.3.6",
+    "mocha": "^3.4.2",
+    "nyc": "^11.1.0",
+    "semver": "^5.4.1",
+    "uglify-js": "^3.0.26"
+  },
+  "dependencies": {
+    "@fav/prop.assign": "^1.0.1",
+    "@fav/prop.assign-deep": "^1.0.0",
+    "@fav/prop.defaults": "^1.0.0",
+    "@fav/prop.defaults-deep": "^1.0.0",
+    "@fav/prop.enum-all-keys": "^1.0.0",
+    "@fav/prop.enum-all-props": "^1.0.0",
+    "@fav/prop.enum-all-symbols": "^1.0.0",
+    "@fav/prop.enum-own-keys": "^1.0.0",
+    "@fav/prop.enum-own-props": "^1.0.0",
+    "@fav/prop.enum-own-symbols": "^1.0.0",
+    "@fav/prop.get-deep": "^1.0.2",
+    "@fav/prop.list-own-keys": "^1.0.0",
+    "@fav/prop.list-own-props": "^1.0.0",
+    "@fav/prop.list-own-symbols": "^1.0.0",
+    "@fav/prop.omit": "^1.0.0",
+    "@fav/prop.omit-deep": "^0.1.0",
+    "@fav/prop.pick": "^1.0.0",
+    "@fav/prop.pick-deep": "^0.1.0",
+    "@fav/prop.set-deep": "^1.0.0",
+    "@fav/prop.visit": "^1.0.0"
+  }
+}

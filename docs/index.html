@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>@fav/prop API document</title>
+<link rel="stylesheet" href="./api.css"/>
+<script src="./api.js"></script>
+</head>
+<body>
+<h1 id="-fav-prop-repo-url-ver-0-0-0-api-document"><a href="https://github.com/sttk/fav-prop/">@fav/prop</a> ver. 0.0.0 API document</h1>
+<hr>
+<h3 id="-u-assign-dest-srcs-object-u-"><u>assign(dest [, ...srcs) : object</u></h3>
+<p>Copys all enumerable own property keys and symbols from one or more source objects to a destination object and returns a destination object.</p>
+<p><strong><em>NOTE:</em></strong> <em>This function behaves the same way as <code>Object.assign</code> except when the first argument is nullish and when properties of first argument object are read only. If the first argument is nullish, this function replace it to an empty plain object. If properties of first argument object are read only, this function ignore them and doesn&#39;t throw Errors.</em></p>
+<h4 id="parameters-">Parameters:</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>dest</em></td>
+<td style="text-align:center">object</td>
+<td>The destination object.</td>
+</tr>
+<tr>
+<td><em>srcs</em></td>
+<td style="text-align:center">object</td>
+<td>The source object(s).</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns-">Returns:</h4>
+<p>The destination object.</p>
+<p><strong>Type:</strong> object</p>
+<hr>
+<h3 id="-u-assigndeep-dest-srcs-object-u-"><u>assignDeep(dest, [, ...srcs]) : object</u></h3>
+<p>Copys all enumerable own properties deeply from one or more source objects to a destination object and returns a destination object.
+This function copys not only child properties but also descendants properties of source objects.</p>
+<p><strong><em>NOTE:</em></strong> <em>This function copys enumerable own properties of srcs objects (top level objects) like <code>Object.assign</code>, but copys properties of child and descendant objects (lower level objects) like primitive properties when those properties are not plain objects.
+For example:</em></p>
+<pre><code>var src = new function() {
+  this.a = { b: 1 };
+  this.c = new function() { this.d = 2 };
+};
+console.log(src); // =&gt; { a: { b: 1 }, c: { d: 2 } }
+
+var dest = assignDeep({}, src);
+console.log(dest); // =&gt; { a: { b: 1 }, c: { d: 2 } }
+
+dest === src // =&gt; false
+dest.a === src.a // =&gt; false
+dest.c === src.c // =&gt; true
+</code></pre><p><strong><em>NOTE:</em></strong> <em>If the first argument is nullish, this function replace it to an empty plain object. If properties of first argument object are read only, this function ignore them and doesn&#39;t throw Errors.</em></p>
+<h4 id="parameters-">Parameters:</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>dest</em></td>
+<td style="text-align:center">object</td>
+<td>The destination object.</td>
+</tr>
+<tr>
+<td><em>srcs</em></td>
+<td style="text-align:center">object</td>
+<td>The source object(s).</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns-">Returns:</h4>
+<p>The destination object.</p>
+<p><strong>Type:</strong> object</p>
+<hr>
+<h3 id="-u-defaults-dest-src-object-u-"><u>defaults(dest [, ...src]) : object</u></h3>
+<p>Copys enumerable own properties (both keys and symbols) of source objects to a destination object when each property value is null or undefined.
+If a property value of a source object is null or undefined, the property is not copied.</p>
+<p><strong><em>NOTE:</em></strong> <em>This function does not throw an error when copying a source property to a destination property which is read only.</em></p>
+<h4 id="parameters-">Parameters:</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>dest</em></td>
+<td style="text-align:center">object</td>
+<td>The destination object.</td>
+</tr>
+<tr>
+<td><em>src</em></td>
+<td style="text-align:center">object</td>
+<td>The source object(s).</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns-">Returns:</h4>
+<p>The destination object.</p>
+<p><strong>Type:</strong> object</p>
+<hr>
+<h3 id="-u-defaultsdeep-dest-src-object-u-"><u>defaultsDeep(dest [, ...src]) : object</u></h3>
+<p>Copys enumerable own properties (both keys and symbols) of child and descendant objects of a source object to a destination object when each property value is null or undefined.
+If a property value of a source object is null or undefined, the property is not copied.</p>
+<p><strong><em>NOTE:</em></strong> <em>This function does not throw an error when copying a source property to a destination property which is read only.</em></p>
+<h4 id="parameters-">Parameters:</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>dest</em></td>
+<td style="text-align:center">object</td>
+<td>The destination object.</td>
+</tr>
+<tr>
+<td><em>src</em></td>
+<td style="text-align:center">object</td>
+<td>The source object(s).</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns-">Returns:</h4>
+<p>The destination object.</p>
+<p><strong>Type:</strong> object</p>
+<hr>
+<h3 id="-u-enumallkeys-obj-array-u-"><u>enumAllKeys(obj) : Array</u></h3>
+<p>Lists enumerable own and inherited property keys of the given object.</p>
+<p>This function returns property keys enumerated with &quot;for-in&quot;, but returns an empty array if <em>obj</em> is nullish.</p>
+<h4 id="parameter-">Parameter:</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>obj</em></td>
+<td style="text-align:center">object</td>
+<td>The object to be listed its property keys.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="return-">Return:</h4>
+<p>An array of property keys.</p>
+<p><strong>Type:</strong> Array</p>
+<hr>
+<h3 id="-u-enumallprops-obj-array-u-"><u>enumAllProps(obj) : Array</u></h3>
+<p>Lists enumerable own and inherited property keys and symbols of the given object.</p>
+<p>This function returns same properties enumerated with &quot;for-in&quot;, but returns an empty array when <em>obj</em> is nullish.</p>
+<h4 id="parameter-">Parameter:</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>obj</em></td>
+<td style="text-align:center">object</td>
+<td>The object to be listed its property keys and symbols.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="return-">Return:</h4>
+<p>An array of property keys and symbols.</p>
+<p><strong>Type:</strong> Array</p>
+<hr>
+<h3 id="-u-enumallsymbols-obj-array-u-"><u>enumAllSymbols(obj) : Array</u></h3>
+<p>Lists enumerable own and inherited property symbols of the given object.</p>
+<p>This function returns same result with <code>Object.getOwnPropertySymbols</code> except that it returns an empty object when the argument is nullish. </p>
+<h4 id="parameter-">Parameter:</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>obj</em></td>
+<td style="text-align:center">object</td>
+<td>The object to be listed its property symbols.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="return-">Return:</h4>
+<p>An array of property symbols.</p>
+<p><strong>Type:</strong> Array</p>
+<hr>
+<h3 id="-u-enumownkeys-obj-array-u-"><u>enumOwnKeys(obj) : Array</u></h3>
+<p>Lists own enumerable property keys of a given object.</p>
+<p>This function returns the same result of <code>Object.keys(obj)</code>, but returns an empty array if <em>obj</em> is nullish.</p>
+<p><strong><em>NOTE:</em></strong> <em>The behavior of <code>Object.keys</code> is different between before and after of Node.js v0.12 when the argument is not an object.</em></p>
+<h4 id="parameter-">Parameter:</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>obj</em></td>
+<td style="text-align:center">object</td>
+<td>The object to be listed its property keys.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="return-">Return:</h4>
+<p>An array of property keys.</p>
+<p><strong>Type:</strong> Array</p>
+<hr>
+<h3 id="-u-enumownprops-obj-array-u-"><u>enumOwnProps(obj) : Array</u></h3>
+<p>Lists enumerable own property keys and symbols of the given object.</p>
+<p>This funciton returns an empty array when the argument is nullish.</p>
+<h4 id="parameter-">Parameter:</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>obj</em></td>
+<td style="text-align:center">object</td>
+<td>The object to be listed its property keys and symbols.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="return-">Return:</h4>
+<p>An array of property keys and symbols.</p>
+<p><strong>Type:</strong> Array</p>
+<hr>
+<h3 id="-u-enumownsymbols-obj-array-u-"><u>enumOwnSymbols(obj) : Array</u></h3>
+<p>Lists enumerable own property symbols of a given object.</p>
+<p>This function returns an empty array if <em>obj</em> is nullish.</p>
+<h4 id="parameter-">Parameter:</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>obj</em></td>
+<td style="text-align:center">object</td>
+<td>The object to be listed its property symbols.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="return-">Return:</h4>
+<p>An array of property symbols.</p>
+<p><strong>Type:</strong> Array</p>
+<hr>
+<h3 id="-u-getdeep-obj-proppath-any-u-"><u>getDeep(obj, propPath) : <em>any</em></u></h3>
+<p>Gets a property value in property tree of an object with a property path.</p>
+<p>A property path is an array of keys/symbols which are passed from root to a target property in property tree of <em>obj</em> object.
+For example, the property path of <code>c</code> in <code>{ a: { b: { c: 1 } } }</code> is <code>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</code>.</p>
+<p>This function is targeted at all properties, which are enumerable and unenumerable, own and inherited.</p>
+<p><strong><em>NOTE:</em></strong> <em>All versions of Node.js allows to use a string array for getting or setting property, like <code>obj[[&#39;a&#39;,&#39;b&#39;]] == obj[&#39;a,b&#39;]</code>. An Symbol array is allowed as same until v4, but is not allowed on v5 and later (TypeError is thrown).
+To support same behaviors for all versions, this function does not allow to use an array as a property. (Thus, a property path needs to be always one dimensional array).</em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><em>src</em></td>
+<td style="text-align:center">object</td>
+<td style="text-align:left">A source object.</td>
+</tr>
+<tr>
+<td style="text-align:left"><em>propPath</em></td>
+<td style="text-align:center">Array</td>
+<td style="text-align:left">A property path of keys and symbols</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<p>A property value of a specified property path.</p>
+<hr>
+<h3 id="-u-listownkeys-obj-array-u-"><u>listOwnKeys(obj) : Array</u></h3>
+<p>List enumerable and unenumerable own property keys of the given object.</p>
+<p>This function returns the same result of <code>Object.getOwnPropertyNames</code> in strict mode except that this function returns an empty array when <code>obj</code> is nullish.</p>
+<p><strong><em>NOTE:</em></strong> <em>The result of <code>Object.getOwnPropertyNames</code> for a function in strict mode is different between before and after Node.js (io.js) v3.
+On v3 and later it doesn&#39;t contain the properties <code>arguments</code> and <code>callar</code>.
+This function excludes <code>arguments</code> and <code>caller</code> properties even not in strict mode for same behaviors on all versions of Node.js.</em></p>
+<p><strong><em>NOTE:</em></strong> <em>On some browsers, Chrome, Safari, Vivaldi, Edge and IE, the result of <code>Object.getOwnPropertyNames</code> for a function in non-strict mode is different from in strict mode.
+It contains the properties <code>arguments</code> and <code>caller</code>. 
+This function excludes <code>arguments</code> and <code>caller</code> properties even not in strict mode for same behaviors on other platforms.</em></p>
+<p><strong><em>NOTE:</em></strong> <em>The results of <code>Object.getOwnPropertyNames</code> for a function on IE and a no name function on Edge are different from results on other browsers and Node.js.
+Those do not contain <code>name</code> property.
+This function appends <code>name</code> property to the result on IE or Edge for same behaviors on target browsers and Node.js</em></p>
+<p><strong><em>NOTE:</em></strong> <em>The value of <code>name</code> property of a no-name function is the first assigned variable&#39;s name on Node.js v6 or later, and that value is an empty string on the eariler.
+This function does no treatment about this differeneces.</em></p>
+<p><strong><em>NOTE:</em></strong> <em>On some browsers, Chrome, Firefox, Safari, and Vivaldi, the <code>name</code> property of a no-name function is the first assigned variable&#39;s name. On Edge, that <code>name</code> property is an empty string. On IE, that <code>name</code> property is undefined.
+This function does no treatment about this differeneces.</em></p>
+<h4 id="parameter-">Parameter:</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>obj</em></td>
+<td style="text-align:center">object</td>
+<td>The object to be listed its property keys.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="return-">Return:</h4>
+<p>An array of property keys.</p>
+<p><strong>Type:</strong> Array</p>
+<hr>
+<h3 id="-u-listownprops-obj-array-u-"><u>listOwnProps(obj) : Array</u></h3>
+<p>Lists enumerable and unenumerable own property keys and symbols of the given object.</p>
+<p>This function returns an array of keys and symbols which are same with the concatenation of <code>Object.getOwnPropertyNames</code> and <code>Object.getOwnPropertySymbols</code> results in strict mode except that this function returns an empty array when <code>obj</code> is nullish.</p>
+<p><strong><em>NOTE:</em></strong> <em>The result of <code>Object.getOwnPropertyNames</code> for a function in strict mode is different between before and after Node.js (io.js) v3.
+On v3 and later it doesn&#39;t contain the properties <code>arguments</code> and <code>caller</code>.
+This function excludes <code>arguments</code> and <code>caller</code> properties even not in strict mode for same behaviors on all versions of Node.js.</em></p>
+<p><strong><em>NOTE:</em></strong> <em>On some browsers, Chrome, Safari, Vivaldi, Edge and IE, the result of <code>Object.getOwnPropertyNames</code> for a function in non-strict mode is different from in strict mode.
+It contains the properties <code>arguments</code> and <code>caller</code>. 
+This function excludes <code>arguments</code> and <code>caller</code> properties even not in strict mode for same behaviors on other platforms.</em></p>
+<p><strong><em>NOTE:</em></strong> <em>The results of <code>Object.getOwnPropertyNames</code> for a function on IE and a no name function on Edge are different from results on other browsers and Node.js.
+It does not contain <code>name</code> property.
+This function appends <code>name</code> property to the result on IE or Edge for same behaviors on target browsers and Node.js</em></p>
+<p><strong><em>NOTE:</em></strong> <em>The value of <code>name</code> property of a no-name function is the first assigned variable&#39;s name on Node.js v6 or later, and that value is an empty string on the eariler.
+This function does no treatment about this differeneces.</em></p>
+<p><strong><em>NOTE:</em></strong> <em>On some browsers, Chrome, Firefox, Safari, and Vivaldi, the <code>name</code> property of a no-name function is the first assigned variable&#39;s name. On Edge, that <code>name</code> property is an empty string. On IE, that <code>name</code> property is undefined.
+This function does no treatment about this differeneces.</em></p>
+<h4 id="parameter-">Parameter:</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>obj</em></td>
+<td style="text-align:center">object</td>
+<td>The object to be listed its property keys and symbols.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="return-">Return:</h4>
+<p>An array of property keys and symbols.</p>
+<p><strong>Type:</strong> Array</p>
+<hr>
+<h3 id="-u-listownsymbols-obj-array-u-"><u>listOwnSymbols(obj) : Array</u></h3>
+<p>Lists enumerable and unenumerable own property symbols of a given object.</p>
+<p>This function returns an empty array if <em>obj</em> is nullish.</p>
+<h4 id="parameter-">Parameter:</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>obj</em></td>
+<td style="text-align:center">object</td>
+<td>The object to be listed its property symbols.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="return-">Return:</h4>
+<p>An array of property symbols.</p>
+<p><strong>Type:</strong> Array</p>
+<hr>
+<h3 id="-u-omit-src-omittedprops-object-u-"><u>omit(src, omittedProps) : object</u></h3>
+<p>Creates a new plain object and copies enumerable own properties (keys and symbols) of <em>src</em> object, but the properties which are included in <em>omittedProps</em> are omitted.</p>
+<p><strong><em>NOTE:</em></strong> <em>All versions of Node.js allows to use a string array for getting or setting property, like <code>obj[[&#39;a&#39;,&#39;b&#39;]] == obj[&#39;a,b&#39;]</code>. An Symbol array is allowed as same until v4, but is not allowed on v5 and later (TypeError is thrown).
+To support same behaviors for all versions, this function does not allow to use an array as a property.</em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><em>src</em></td>
+<td style="text-align:center">object</td>
+<td style="text-align:left">A source object.</td>
+</tr>
+<tr>
+<td style="text-align:left"><em>omittedProps</em></td>
+<td style="text-align:center">Array</td>
+<td style="text-align:left">A property keys and symbols to be omitted.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<p>A plain object which is copied property keys and symbols of a source object.</p>
+<hr>
+<h3 id="-u-omitdeep-src-omittedproppaths-object-u-"><u>omitDeep(src, omittedPropPaths) : object</u></h3>
+<p>Creates a new plain object and copies child and descendant enumerable own properties (keys and symbols) of <em>src</em> object deeply, but the properties which are included in <em>omittedPropPaths</em> are omitted.</p>
+<p><em>omittedPropPaths</em> is an array of property paths. A property path is an array of keys/symbols which are passed from root to a target property in property tree of <em>src</em> object.
+For example, the property path of <code>c</code> in <code>{ a: { b: { c: 1 } } } =&gt; [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</code>.</p>
+<p>For a top property, a string key or a symbol can be specified. For omitting one property, a prperty path can be specified.</p>
+<p><strong><em>NOTE:</em></strong> <em>All versions of Node.js allows to use a string array for getting or setting property, like <code>obj[[&#39;a&#39;,&#39;b&#39;]] == obj[&#39;a,b&#39;]</code>. An Symbol array is allowed as same until v4, but is not allowed on v5 and later (TypeError is thrown).
+To support same behaviors for all versions, this function does not allow to use an array as a property. (Thus, a property path needs to be always one dimensional array).</em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><em>src</em></td>
+<td style="text-align:center">object</td>
+<td style="text-align:left">A source object.</td>
+</tr>
+<tr>
+<td style="text-align:left"><em>omittedPropPaths</em></td>
+<td style="text-align:center">Array</td>
+<td style="text-align:left">Property paths of keys and symbols to be omitted.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<p>A plain object which is copied properties deeply except specified.</p>
+<hr>
+<h3 id="-u-pick-src-pickedprops-object-u-"><u>pick(src, pickedProps) : object</u></h3>
+<p>Creates a new plain object and copies enumerable own properties (keys and symbols) of <em>src</em> object, and the copied properties are only included in <em>pickedProps</em>.</p>
+<p><strong><em>NOTE:</em></strong> <em>All versions of Node.js allows to use a string array for getting or setting property, like <code>obj[[&#39;a&#39;,&#39;b&#39;]] == obj[&#39;a,b&#39;]</code>. An Symbol array is allowed as same until v4, but is not allowed on v5 and later (TypeError is thrown).
+To support same behaviors for all versions, this function does not allow to use an array as a property.</em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><em>src</em></td>
+<td style="text-align:center">object</td>
+<td style="text-align:left">A source object.</td>
+</tr>
+<tr>
+<td style="text-align:left"><em>pickedProps</em></td>
+<td style="text-align:center">Array</td>
+<td style="text-align:left">A property keys and symbols to be copied.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<p>A plain object which is copied property keys and symbols of a source object.</p>
+<hr>
+<h3 id="-u-pickdeep-src-pickedproppaths-object-u-"><u>pickDeep(src, pickedPropPaths) : object</u></h3>
+<p>Creates a new plain object and copies child and descendant enumerable own properties (keys and symbols) of <em>src</em> object deeply, and the properties which are included in <em>pickedPropPaths</em> are picked.</p>
+<p><em>pickedPropPaths</em> is an array of property paths. A property path is an array of keys/symbols which are passed from root to a target property in property tree of <em>src</em> object.
+For example, the property path of <code>c</code> in <code>{ a : { b: { c: 1 } } } =&gt; [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</code>.
+For a top property, a string or a symbol can be specified.</p>
+<p><strong><em>NOTE:</em></strong> <em>All versions of Node.js allows to use a string array for getting or setting property, like <code>obj[[&#39;a&#39;,&#39;b&#39;]] == obj[&#39;a,b&#39;]</code>. An Symbol array is allowed as same until v4, but is not allowed on v5 and later (TypeError is thrown).
+To support same behaviors for all versions, this function does not allow to use an array as a property. (Thus, a property path needs to be always one dimensional array).</em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><em>src</em></td>
+<td style="text-align:center">object</td>
+<td style="text-align:left">A source object.</td>
+</tr>
+<tr>
+<td style="text-align:left"><em>pickedPropPaths</em></td>
+<td style="text-align:center">Array</td>
+<td style="text-align:left">A property paths of keys and symbols to be copied.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<p>A plain object which is copied property paths keys.</p>
+<hr>
+<h3 id="-u-setdeep-obj-proppath-value-void-u-"><u>setDeep(obj, propPath, value) : Void</u></h3>
+<p>Sets a property value in property tree of an object with a property path.</p>
+<p>A property path is an array of keys/symbols which are passed from root to a target property in property tree of <em>obj</em> object.
+For example, the property path of <code>c</code> in <code>{ a: { b: { c: 1 } } }</code> is <code>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</code>.
+For a top property, a string or a symbol can be specified.</p>
+<p>This function is targeted at all properties, which are enumerable and unenumerable, own and inherited.
+If target property is read only, this function does nothing and throws no error. </p>
+<p><strong><em>NOTE:</em></strong> <em>All versions of Node.js allows to use a string array for getting or setting property, like <code>obj[[&#39;a&#39;,&#39;b&#39;]] == obj[&#39;a,b&#39;]</code>. An Symbol array is allowed as same until v4, but is not allowed  on v5 and later (TypeError is thrown). To support same behaviors for all versions, this function does not allow to use an array as a property. (Thus, a property path needs to be always one dimensional array).</em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><em>src</em></td>
+<td style="text-align:center">object</td>
+<td style="text-align:left">A source object.</td>
+</tr>
+<tr>
+<td style="text-align:left"><em>propPath</em></td>
+<td style="text-align:center">Array</td>
+<td style="text-align:left">A property path of keys and symbols.</td>
+</tr>
+<tr>
+<td style="text-align:left"><em>value</em></td>
+<td style="text-align:center"><em>any</em></td>
+<td style="text-align:left">A value to be set to target property.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="-u-visit-obj-fn-void-u-"><u>visit(obj, fn) : Void</u></h3>
+<p>Visits each nodes in a plain object tree.
+This function deeply traces property nodes which are plain objects only, and apply a given function to enumerable and own properties (keys and symbols) of the traced property nodes.</p>
+<h4 id="parameters-">Parameters:</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align:center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>obj</em></td>
+<td style="text-align:center">object</td>
+<td>A plain object to be traced its properties deeply.</td>
+</tr>
+<tr>
+<td><em>fn</em></td>
+<td style="text-align:center">function</td>
+<td>A function to be applied to visited properties.</td>
+</tr>
+</tbody>
+</table>
+<p>The second argument function is passed following parameters, and the return value of this function controls if this function is applied to child and descendant properties of current property.</p>
+<ul>
+<li><p><strong>APIs of the second argument function</strong></p>
+<p>  <strong>Parameter:</strong></p>
+  <table>
+  <thead>
+  <tr>
+   <th>Parameter</th>
+   <th>Type</th>
+   <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+   <td><i>key</i></td>
+   <td>string</td>
+   <td>A key of current property.</td>
+  </tr>
+  <tr>
+   <td><i>value</i></td>
+   <td><i>any</i></td>
+   <td>A value of current property.</td>
+  </tr>
+  <tr>
+   <td><i>index</i></td>
+   <td>number</td>
+   <td>Index of current property among sibling properties.</td>
+  </tr>
+  <tr>
+   <td><i>count</i></td>
+   <td>number</td>
+   <td>Count of sibling properties.</td>
+  </tr>
+  <tr>
+   <td><i>parentKeys</i></td>
+   <td>Array</td>
+   <td>An array which contains keys of ancestor properties and represents a trace path to current property. Also, the length of this array suggests the <i>depth</i> of property tree.</td>
+  </tr>
+  <tr>
+   <td><i>parentNode</i></td>
+   <td>object</td>
+   <td>A plain object which is a parent node.</td>
+  </tr>
+  </tbody>
+  </table>
+
+<p>  <strong>Returns:</strong></p>
+<p>  True, if stop digging child and descendant properties.</p>
+<p>  <strong>Type:</strong> boolean</p>
+</li>
+</ul>
+<hr>
+</body>
+</html>
