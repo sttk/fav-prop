@@ -2676,7 +2676,7 @@ function isSupportArrowFunction() {
       return true;
     }
     if (ua.MSIE) {
-      return true;
+      return false;
     }
     if (ua.EDGE) {
       return true;
@@ -2713,7 +2713,7 @@ function isSupportAsyncAwait() {
       return true;
     }
     if (ua.MSIE) {
-      return true;
+      return false;
     }
     if (ua.EDGE) {
       return true;
@@ -2750,7 +2750,7 @@ function isSupportGenerator() {
       return true;
     }
     if (ua.MSIE) {
-      return true;
+      return false;
     }
     if (ua.EDGE) {
       return true;
