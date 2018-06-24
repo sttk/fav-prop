@@ -7,7 +7,7 @@
 <script src="./api.js"></script>
 </head>
 <body>
-<h1 id="-fav-prop-repo-url-ver-0-0-0-api-document"><a href="https://github.com/sttk/fav-prop/">@fav/prop</a> ver. 0.0.0 API document</h1>
+<h1 id="-fav-prop-ver-0-0-0-api-document"><a href="https://github.com/sttk/fav-prop/">@fav/prop</a> ver. 0.0.0 API document</h1>
 <hr>
 <h3 id="-u-assign-dest-srcs-object-u-"><u>assign(dest [, ...srcs) : object</u></h3>
 <p>Copys all enumerable own property keys and symbols from one or more source objects to a destination object and returns a destination object.</p>
@@ -17,23 +17,21 @@
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>dest</em></td>
-<td style="text-align:center">object</td>
+<td align="center">object</td>
 <td>The destination object.</td>
 </tr>
 <tr>
 <td><em>srcs</em></td>
-<td style="text-align:center">object</td>
+<td align="center">object</td>
 <td>The source object(s).</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h4 id="returns-">Returns:</h4>
 <p>The destination object.</p>
 <p><strong>Type:</strong> object</p>
@@ -54,30 +52,27 @@ console.log(dest); // =&gt; { a: { b: 1 }, c: { d: 2 } }
 
 dest === src // =&gt; false
 dest.a === src.a // =&gt; false
-dest.c === src.c // =&gt; true
-</code></pre><p><strong><em>NOTE:</em></strong> <em>If the first argument is nullish, this function replace it to an empty plain object. If properties of first argument object are read only, this function ignore them and doesn&#39;t throw Errors.</em></p>
+dest.c === src.c // =&gt; true</code></pre><p><strong><em>NOTE:</em></strong> <em>If the first argument is nullish, this function replace it to an empty plain object. If properties of first argument object are read only, this function ignore them and doesn&#39;t throw Errors.</em></p>
 <h4 id="parameters-">Parameters:</h4>
 <table>
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>dest</em></td>
-<td style="text-align:center">object</td>
+<td align="center">object</td>
 <td>The destination object.</td>
 </tr>
 <tr>
 <td><em>srcs</em></td>
-<td style="text-align:center">object</td>
+<td align="center">object</td>
 <td>The source object(s).</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h4 id="returns-">Returns:</h4>
 <p>The destination object.</p>
 <p><strong>Type:</strong> object</p>
@@ -91,23 +86,21 @@ If a property value of a source object is null or undefined, the property is not
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>dest</em></td>
-<td style="text-align:center">object</td>
+<td align="center">object</td>
 <td>The destination object.</td>
 </tr>
 <tr>
 <td><em>src</em></td>
-<td style="text-align:center">object</td>
+<td align="center">object</td>
 <td>The source object(s).</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h4 id="returns-">Returns:</h4>
 <p>The destination object.</p>
 <p><strong>Type:</strong> object</p>
@@ -121,23 +114,21 @@ If a property value of a source object is null or undefined, the property is not
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>dest</em></td>
-<td style="text-align:center">object</td>
+<td align="center">object</td>
 <td>The destination object.</td>
 </tr>
 <tr>
 <td><em>src</em></td>
-<td style="text-align:center">object</td>
+<td align="center">object</td>
 <td>The source object(s).</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h4 id="returns-">Returns:</h4>
 <p>The destination object.</p>
 <p><strong>Type:</strong> object</p>
@@ -150,18 +141,16 @@ If a property value of a source object is null or undefined, the property is not
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>obj</em></td>
-<td style="text-align:center">object</td>
+<td align="center">object</td>
 <td>The object to be listed its property keys.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h4 id="return-">Return:</h4>
 <p>An array of property keys.</p>
 <p><strong>Type:</strong> Array</p>
@@ -174,18 +163,16 @@ If a property value of a source object is null or undefined, the property is not
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>obj</em></td>
-<td style="text-align:center">object</td>
+<td align="center">object</td>
 <td>The object to be listed its property keys and symbols.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h4 id="return-">Return:</h4>
 <p>An array of property keys and symbols.</p>
 <p><strong>Type:</strong> Array</p>
@@ -198,18 +185,16 @@ If a property value of a source object is null or undefined, the property is not
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>obj</em></td>
-<td style="text-align:center">object</td>
+<td align="center">object</td>
 <td>The object to be listed its property symbols.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h4 id="return-">Return:</h4>
 <p>An array of property symbols.</p>
 <p><strong>Type:</strong> Array</p>
@@ -223,18 +208,16 @@ If a property value of a source object is null or undefined, the property is not
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>obj</em></td>
-<td style="text-align:center">object</td>
+<td align="center">object</td>
 <td>The object to be listed its property keys.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h4 id="return-">Return:</h4>
 <p>An array of property keys.</p>
 <p><strong>Type:</strong> Array</p>
@@ -247,18 +230,16 @@ If a property value of a source object is null or undefined, the property is not
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>obj</em></td>
-<td style="text-align:center">object</td>
+<td align="center">object</td>
 <td>The object to be listed its property keys and symbols.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h4 id="return-">Return:</h4>
 <p>An array of property keys and symbols.</p>
 <p><strong>Type:</strong> Array</p>
@@ -271,18 +252,16 @@ If a property value of a source object is null or undefined, the property is not
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>obj</em></td>
-<td style="text-align:center">object</td>
+<td align="center">object</td>
 <td>The object to be listed its property symbols.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h4 id="return-">Return:</h4>
 <p>An array of property symbols.</p>
 <p><strong>Type:</strong> Array</p>
@@ -298,24 +277,22 @@ To support same behaviors for all versions, this function does not allow to use 
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Parameter</th>
-<th style="text-align:center">Type</th>
-<th style="text-align:left">Description</th>
+<th align="left">Parameter</th>
+<th align="center">Type</th>
+<th align="left">Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left"><em>src</em></td>
-<td style="text-align:center">object</td>
-<td style="text-align:left">A source object.</td>
+<tbody><tr>
+<td align="left"><em>src</em></td>
+<td align="center">object</td>
+<td align="left">A source object.</td>
 </tr>
 <tr>
-<td style="text-align:left"><em>propPath</em></td>
-<td style="text-align:center">Array</td>
-<td style="text-align:left">A property path of keys and symbols</td>
+<td align="left"><em>propPath</em></td>
+<td align="center">Array</td>
+<td align="left">A property path of keys and symbols</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p><strong>Returns:</strong></p>
 <p>A property value of a specified property path.</p>
 <hr>
@@ -340,18 +317,16 @@ This function does no treatment about this differeneces.</em></p>
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>obj</em></td>
-<td style="text-align:center">object</td>
+<td align="center">object</td>
 <td>The object to be listed its property keys.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h4 id="return-">Return:</h4>
 <p>An array of property keys.</p>
 <p><strong>Type:</strong> Array</p>
@@ -377,18 +352,16 @@ This function does no treatment about this differeneces.</em></p>
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>obj</em></td>
-<td style="text-align:center">object</td>
+<td align="center">object</td>
 <td>The object to be listed its property keys and symbols.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h4 id="return-">Return:</h4>
 <p>An array of property keys and symbols.</p>
 <p><strong>Type:</strong> Array</p>
@@ -401,18 +374,16 @@ This function does no treatment about this differeneces.</em></p>
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>obj</em></td>
-<td style="text-align:center">object</td>
+<td align="center">object</td>
 <td>The object to be listed its property symbols.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h4 id="return-">Return:</h4>
 <p>An array of property symbols.</p>
 <p><strong>Type:</strong> Array</p>
@@ -425,24 +396,22 @@ To support same behaviors for all versions, this function does not allow to use 
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Parameter</th>
-<th style="text-align:center">Type</th>
-<th style="text-align:left">Description</th>
+<th align="left">Parameter</th>
+<th align="center">Type</th>
+<th align="left">Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left"><em>src</em></td>
-<td style="text-align:center">object</td>
-<td style="text-align:left">A source object.</td>
+<tbody><tr>
+<td align="left"><em>src</em></td>
+<td align="center">object</td>
+<td align="left">A source object.</td>
 </tr>
 <tr>
-<td style="text-align:left"><em>omittedProps</em></td>
-<td style="text-align:center">Array</td>
-<td style="text-align:left">A property keys and symbols to be omitted.</td>
+<td align="left"><em>omittedProps</em></td>
+<td align="center">Array</td>
+<td align="left">A property keys and symbols to be omitted.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p><strong>Returns:</strong></p>
 <p>A plain object which is copied property keys and symbols of a source object.</p>
 <hr>
@@ -457,24 +426,22 @@ To support same behaviors for all versions, this function does not allow to use 
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Parameter</th>
-<th style="text-align:center">Type</th>
-<th style="text-align:left">Description</th>
+<th align="left">Parameter</th>
+<th align="center">Type</th>
+<th align="left">Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left"><em>src</em></td>
-<td style="text-align:center">object</td>
-<td style="text-align:left">A source object.</td>
+<tbody><tr>
+<td align="left"><em>src</em></td>
+<td align="center">object</td>
+<td align="left">A source object.</td>
 </tr>
 <tr>
-<td style="text-align:left"><em>omittedPropPaths</em></td>
-<td style="text-align:center">Array</td>
-<td style="text-align:left">Property paths of keys and symbols to be omitted.</td>
+<td align="left"><em>omittedPropPaths</em></td>
+<td align="center">Array</td>
+<td align="left">Property paths of keys and symbols to be omitted.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p><strong>Returns:</strong></p>
 <p>A plain object which is copied properties deeply except specified.</p>
 <hr>
@@ -486,24 +453,22 @@ To support same behaviors for all versions, this function does not allow to use 
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Parameter</th>
-<th style="text-align:center">Type</th>
-<th style="text-align:left">Description</th>
+<th align="left">Parameter</th>
+<th align="center">Type</th>
+<th align="left">Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left"><em>src</em></td>
-<td style="text-align:center">object</td>
-<td style="text-align:left">A source object.</td>
+<tbody><tr>
+<td align="left"><em>src</em></td>
+<td align="center">object</td>
+<td align="left">A source object.</td>
 </tr>
 <tr>
-<td style="text-align:left"><em>pickedProps</em></td>
-<td style="text-align:center">Array</td>
-<td style="text-align:left">A property keys and symbols to be copied.</td>
+<td align="left"><em>pickedProps</em></td>
+<td align="center">Array</td>
+<td align="left">A property keys and symbols to be copied.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p><strong>Returns:</strong></p>
 <p>A plain object which is copied property keys and symbols of a source object.</p>
 <hr>
@@ -518,24 +483,22 @@ To support same behaviors for all versions, this function does not allow to use 
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Parameter</th>
-<th style="text-align:center">Type</th>
-<th style="text-align:left">Description</th>
+<th align="left">Parameter</th>
+<th align="center">Type</th>
+<th align="left">Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left"><em>src</em></td>
-<td style="text-align:center">object</td>
-<td style="text-align:left">A source object.</td>
+<tbody><tr>
+<td align="left"><em>src</em></td>
+<td align="center">object</td>
+<td align="left">A source object.</td>
 </tr>
 <tr>
-<td style="text-align:left"><em>pickedPropPaths</em></td>
-<td style="text-align:center">Array</td>
-<td style="text-align:left">A property paths of keys and symbols to be copied.</td>
+<td align="left"><em>pickedPropPaths</em></td>
+<td align="center">Array</td>
+<td align="left">A property paths of keys and symbols to be copied.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p><strong>Returns:</strong></p>
 <p>A plain object which is copied property paths keys.</p>
 <hr>
@@ -551,29 +514,27 @@ If target property is read only, this function does nothing and throws no error.
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Parameter</th>
-<th style="text-align:center">Type</th>
-<th style="text-align:left">Description</th>
+<th align="left">Parameter</th>
+<th align="center">Type</th>
+<th align="left">Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left"><em>src</em></td>
-<td style="text-align:center">object</td>
-<td style="text-align:left">A source object.</td>
+<tbody><tr>
+<td align="left"><em>src</em></td>
+<td align="center">object</td>
+<td align="left">A source object.</td>
 </tr>
 <tr>
-<td style="text-align:left"><em>propPath</em></td>
-<td style="text-align:center">Array</td>
-<td style="text-align:left">A property path of keys and symbols.</td>
+<td align="left"><em>propPath</em></td>
+<td align="center">Array</td>
+<td align="left">A property path of keys and symbols.</td>
 </tr>
 <tr>
-<td style="text-align:left"><em>value</em></td>
-<td style="text-align:center"><em>any</em></td>
-<td style="text-align:left">A value to be set to target property.</td>
+<td align="left"><em>value</em></td>
+<td align="center"><em>any</em></td>
+<td align="left">A value to be set to target property.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <hr>
 <h3 id="-u-visit-obj-fn-void-u-"><u>visit(obj, fn) : Void</u></h3>
 <p>Visits each nodes in a plain object tree.
@@ -583,23 +544,21 @@ This function deeply traces property nodes which are plain objects only, and app
 <thead>
 <tr>
 <th>Parameter</th>
-<th style="text-align:center">Type</th>
+<th align="center">Type</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><em>obj</em></td>
-<td style="text-align:center">object</td>
+<td align="center">object</td>
 <td>A plain object to be traced its properties deeply.</td>
 </tr>
 <tr>
 <td><em>fn</em></td>
-<td style="text-align:center">function</td>
+<td align="center">function</td>
 <td>A function to be applied to visited properties.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>The second argument function is passed following parameters, and the return value of this function controls if this function is applied to child and descendant properties of current property.</p>
 <ul>
 <li><p><strong>APIs of the second argument function</strong></p>

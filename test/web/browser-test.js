@@ -3127,6 +3127,8 @@ var expect = chai.expect;
 
 
 
+
+
 var omitDeep = fav.prop.omitDeep;
 var assignDeep = fav.prop.assignDeep;
 var visit = fav.prop.visit;
@@ -3602,6 +3604,7 @@ var expect = chai.expect;
 
 var omit = fav.prop.omit;
 
+
 var assign = fav.prop.assign;
 
 describe('fav.prop.omit', function() {
@@ -3837,6 +3840,8 @@ describe('fav.prop.omit', function() {
 
 
 var expect = chai.expect;
+
+
 
 
 

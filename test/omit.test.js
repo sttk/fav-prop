@@ -6,6 +6,7 @@ var expect = chai.expect;
 var fav = {}; fav.prop = require('..');
 var omit = fav.prop.omit;
 
+
 var assign = fav.prop.assign;
 
 describe('fav.prop.omit', function() {

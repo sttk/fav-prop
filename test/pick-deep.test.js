@@ -5,6 +5,8 @@ var expect = chai.expect;
 
 var fav = {}; fav.prop = require('..');
 
+
+
 var pickDeep = fav.prop.pickDeep;
 var visit = fav.prop.visit;
 var setDeep = fav.prop.setDeep;
