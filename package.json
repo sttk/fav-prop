@@ -44,10 +44,10 @@
     "browserify": "^16.2.2",
     "chai": "^3.5.0",
     "coveralls": "^3.0.1",
-    "eslint": "^4.3.0",
-    "marked": "^0.4.0",
+    "eslint": "^5.5.0",
+    "marked": "^0.5.0",
     "mocha": "^3.4.2",
-    "nyc": "^11.1.0",
+    "nyc": "^13.0.1",
     "semver": "^5.4.1",
     "uglify-js": "^3.0.26"
   },
@@ -67,9 +67,9 @@
     "@fav/prop.list-own-props": "^1.0.0",
     "@fav/prop.list-own-symbols": "^1.0.0",
     "@fav/prop.omit": "^1.0.0",
-    "@fav/prop.omit-deep": "^0.1.0",
+    "@fav/prop.omit-deep": "^1.0.0",
     "@fav/prop.pick": "^1.0.0",
-    "@fav/prop.pick-deep": "^0.1.0",
+    "@fav/prop.pick-deep": "^1.0.0",
     "@fav/prop.set-deep": "^1.0.0",
     "@fav/prop.visit": "^1.0.0"
   }
