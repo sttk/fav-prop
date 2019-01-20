@@ -4,6 +4,7 @@ var assign = require('@fav/prop.assign');
 var assignDeep = require('@fav/prop.assign-deep');
 var defaults = require('@fav/prop.defaults');
 var defaultsDeep = require('@fav/prop.defaults-deep');
+var define = require('@fav/prop.define');
 var enumAllKeys = require('@fav/prop.enum-all-keys');
 var enumAllProps = require('@fav/prop.enum-all-props');
 var enumAllSymbols = require('@fav/prop.enum-all-symbols');
@@ -28,6 +29,7 @@ Object.defineProperties(prop, {
   assignDeep:     { enumerable: true, value: assignDeep },
   defaults:       { enumerable: true, value: defaults },
   defaultsDeep:   { enumerable: true, value: defaultsDeep },
+  define:         { enumerable: true, value: define },
   enumAllKeys:    { enumerable: true, value: enumAllKeys },
   enumAllProps:   { enumerable: true, value: enumAllProps },
   enumAllSymbols: { enumerable: true, value: enumAllSymbols },

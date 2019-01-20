@@ -107,6 +107,55 @@ The destination object.
 
 
 ----
+### <u>define.immutable(obj, name, value) : void</u>
+
+Defines an read-only and unenumerable property to the specified object.
+
+#### Parameters:
+
+| Parameter |   Type   | Description              |
+|-----------|:--------:|--------------------------|
+| *obj*     |  object  | The target object.       |
+| *name*    |  string  | The property name.       |
+| *value*   |  *any*   | The property value.      |
+
+### <u>define.mutable(obj, name, value) : void</u>
+
+Defines an writable and unenumerable property to the specified object.
+
+#### Parameters:
+
+| Parameter |   Type   | Description              |
+|-----------|:--------:|--------------------------|
+| *obj*     |  object  | The target object.       |
+| *name*    |  string  | The property name.       |
+| *value*   |  *any*   | The property value.      |
+
+### <u>define.override(obj, name, fn) : void</u>
+
+Redefines a property function of the specified object.
+
+The original function can be accessed by <code>*name*.$uper</code>.
+
+| Parameter |   Type   | Description              |
+|-----------|:--------:|--------------------------|
+| *obj*     |  object  | The target object.       |
+| *name*    |  string  | The property name.       |
+| *fn*      | function | The property function.   |
+
+### <u>define.override(obj, namedFn) : void</u>
+
+Redefines a property function of the specified object with named function.
+
+The original function can be accessed by <code>*namedFn*.$uper</code>.
+
+
+| Parameter |   Type   | Description              |
+|-----------|:--------:|--------------------------|
+| *obj*     |  object  | The target object.       |
+| *namedFn* | function | The named function.      |
+
+----
 ### <u>enumAllKeys(obj) : Array</u>
 
 Lists enumerable own and inherited property keys of the given object.

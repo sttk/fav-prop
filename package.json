@@ -56,6 +56,7 @@
     "@fav/prop.assign-deep": "^1.0.0",
     "@fav/prop.defaults": "^1.0.0",
     "@fav/prop.defaults-deep": "^1.0.0",
+    "@fav/prop.define": "^1.0.0",
     "@fav/prop.enum-all-keys": "^1.0.0",
     "@fav/prop.enum-all-props": "^1.0.0",
     "@fav/prop.enum-all-symbols": "^1.0.0",

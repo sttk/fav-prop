@@ -5,6 +5,7 @@ var assign = require('@fav/prop.assign');
 var assignDeep = require('@fav/prop.assign-deep');
 var defaults = require('@fav/prop.defaults');
 var defaultsDeep = require('@fav/prop.defaults-deep');
+var define = require('@fav/prop.define');
 var enumAllKeys = require('@fav/prop.enum-all-keys');
 var enumAllProps = require('@fav/prop.enum-all-props');
 var enumAllSymbols = require('@fav/prop.enum-all-symbols');
@@ -29,6 +30,7 @@ Object.defineProperties(prop, {
   assignDeep:     { enumerable: true, value: assignDeep },
   defaults:       { enumerable: true, value: defaults },
   defaultsDeep:   { enumerable: true, value: defaultsDeep },
+  define:         { enumerable: true, value: define },
   enumAllKeys:    { enumerable: true, value: enumAllKeys },
   enumAllProps:   { enumerable: true, value: enumAllProps },
   enumAllSymbols: { enumerable: true, value: enumAllSymbols },
@@ -49,7 +51,7 @@ Object.defineProperties(prop, {
 
 module.exports = prop;
 
-},{"@fav/prop.assign":3,"@fav/prop.assign-deep":2,"@fav/prop.defaults":5,"@fav/prop.defaults-deep":4,"@fav/prop.enum-all-keys":6,"@fav/prop.enum-all-props":7,"@fav/prop.enum-all-symbols":8,"@fav/prop.enum-own-keys":9,"@fav/prop.enum-own-props":10,"@fav/prop.enum-own-symbols":11,"@fav/prop.get-deep":12,"@fav/prop.list-own-keys":13,"@fav/prop.list-own-props":14,"@fav/prop.list-own-symbols":15,"@fav/prop.omit":17,"@fav/prop.omit-deep":16,"@fav/prop.pick":19,"@fav/prop.pick-deep":18,"@fav/prop.set-deep":20,"@fav/prop.visit":21}],2:[function(require,module,exports){
+},{"@fav/prop.assign":3,"@fav/prop.assign-deep":2,"@fav/prop.defaults":5,"@fav/prop.defaults-deep":4,"@fav/prop.define":6,"@fav/prop.enum-all-keys":7,"@fav/prop.enum-all-props":8,"@fav/prop.enum-all-symbols":9,"@fav/prop.enum-own-keys":10,"@fav/prop.enum-own-props":11,"@fav/prop.enum-own-symbols":12,"@fav/prop.get-deep":13,"@fav/prop.list-own-keys":14,"@fav/prop.list-own-props":15,"@fav/prop.list-own-symbols":16,"@fav/prop.omit":18,"@fav/prop.omit-deep":17,"@fav/prop.pick":20,"@fav/prop.pick-deep":19,"@fav/prop.set-deep":21,"@fav/prop.visit":22}],2:[function(require,module,exports){
 'use strict';
 
 var isPlainObject = require('@fav/type.is-plain-object');
@@ -99,7 +101,7 @@ function assignDeepEach(dest, src) {
 
 module.exports = assignDeep;
 
-},{"@fav/prop.enum-own-props":10,"@fav/type.is-plain-object":24}],3:[function(require,module,exports){
+},{"@fav/prop.enum-own-props":11,"@fav/type.is-plain-object":25}],3:[function(require,module,exports){
 'use strict';
 
 var enumOwnProps = require('@fav/prop.enum-own-props');
@@ -129,7 +131,7 @@ function assignEach(dest, src) {
 
 module.exports = assign;
 
-},{"@fav/prop.enum-own-props":10}],4:[function(require,module,exports){
+},{"@fav/prop.enum-own-props":11}],4:[function(require,module,exports){
 'use strict';
 
 var enumOwnProps = require('@fav/prop.enum-own-props');
@@ -182,7 +184,7 @@ function defaultsDeepEach(dest, src) {
 
 module.exports = defaultsDeep;
 
-},{"@fav/prop.enum-own-props":10,"@fav/type.is-plain-object":24}],5:[function(require,module,exports){
+},{"@fav/prop.enum-own-props":11,"@fav/type.is-plain-object":25}],5:[function(require,module,exports){
 'use strict';
 
 var enumOwnProps = require('@fav/prop.enum-own-props');
@@ -224,7 +226,56 @@ function defaultsEach(dest, src) {
 
 module.exports = defaults;
 
-},{"@fav/prop.enum-own-props":10}],6:[function(require,module,exports){
+},{"@fav/prop.enum-own-props":11}],6:[function(require,module,exports){
+'use strict';
+
+var isFunction = require('@fav/type.is-function');
+
+exports.immutable = function(obj, name, value) {
+  Object.defineProperty(obj, name, {
+    value: value,
+  });
+};
+
+exports.mutable = function(obj, name, value) {
+  Object.defineProperty(obj, name, {
+    writable: true,
+    configurable: true,
+    value: value,
+  });
+};
+
+exports.override = function(obj, name, fn) {
+  if (isFunction(name)) {
+    fn = name;
+    if (!(name = fn.name || getFunctionName(fn))) {
+      return;
+    }
+  }
+
+  var superFn = obj[name];
+  if (isFunction(superFn)) {
+    Object.defineProperty(fn, '$uper', {
+      value: superFn.bind(obj),
+    });
+  }
+
+  Object.defineProperty(obj, name, {
+    enumerable: true,
+    writable: true,
+    value: fn,
+  });
+};
+
+/* istanbul ignore next */
+function getFunctionName(fn) {  // for IE11
+  var result = /^\s*function ([^(]+)\(/.exec(fn.toString());
+  if (result) {
+    return result[1];
+  }
+}
+
+},{"@fav/type.is-function":24}],7:[function(require,module,exports){
 'use strict';
 
 function enumAllKeys(obj) {
@@ -248,7 +299,7 @@ function enumAllKeys(obj) {
 
 module.exports = enumAllKeys;
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 'use strict';
 
 var enumAllKeys = require('@fav/prop.enum-all-keys');
@@ -260,7 +311,7 @@ function enumAllProps(obj) {
 
 module.exports = enumAllProps;
 
-},{"@fav/prop.enum-all-keys":6,"@fav/prop.enum-all-symbols":8}],8:[function(require,module,exports){
+},{"@fav/prop.enum-all-keys":7,"@fav/prop.enum-all-symbols":9}],9:[function(require,module,exports){
 'use strict';
 
 function enumAllSymbols(obj) {
@@ -300,7 +351,7 @@ function enumAllSymbols(obj) {
 
 module.exports = enumAllSymbols;
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 'use strict';
 
 function enumOwnKeys(obj) {
@@ -324,7 +375,7 @@ function enumOwnKeys(obj) {
 
 module.exports = enumOwnKeys;
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 'use strict';
 
 var enumOwnKeys = require('@fav/prop.enum-own-keys');
@@ -336,7 +387,7 @@ function enumOwnProps(obj) {
 
 module.exports = enumOwnProps;
 
-},{"@fav/prop.enum-own-keys":9,"@fav/prop.enum-own-symbols":11}],11:[function(require,module,exports){
+},{"@fav/prop.enum-own-keys":10,"@fav/prop.enum-own-symbols":12}],12:[function(require,module,exports){
 'use strict';
 
 function enumOwnSymbols(obj) {
@@ -370,7 +421,7 @@ function enumOwnSymbols(obj) {
 
 module.exports = enumOwnSymbols;
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 'use strict';
 
 var isArray = require('@fav/type.is-array');
@@ -406,7 +457,7 @@ function getDeep(obj, propPath) {
 
 module.exports = getDeep;
 
-},{"@fav/type.is-array":22}],13:[function(require,module,exports){
+},{"@fav/type.is-array":23}],14:[function(require,module,exports){
 'use strict';
 
 function listOwnKeys(obj) {
@@ -450,7 +501,7 @@ function listOwnKeys(obj) {
 
 module.exports = listOwnKeys;
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 'use strict';
 
 var listOwnKeys = require('@fav/prop.list-own-keys');
@@ -462,7 +513,7 @@ function listOwnProps(obj) {
 
 module.exports = listOwnProps;
 
-},{"@fav/prop.list-own-keys":13,"@fav/prop.list-own-symbols":15}],15:[function(require,module,exports){
+},{"@fav/prop.list-own-keys":14,"@fav/prop.list-own-symbols":16}],16:[function(require,module,exports){
 'use strict';
 
 function listOwnSymbols(obj) {
@@ -489,7 +540,7 @@ function listOwnSymbols(obj) {
 
 module.exports = listOwnSymbols;
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 'use strict';
 
 var assignDeep = require('@fav/prop.assign-deep');
@@ -535,7 +586,7 @@ function omitDeepEach(dest, propPath) {
 
 module.exports = omitDeep;
 
-},{"@fav/prop.assign-deep":2,"@fav/prop.get-deep":12,"@fav/type.is-array":22}],17:[function(require,module,exports){
+},{"@fav/prop.assign-deep":2,"@fav/prop.get-deep":13,"@fav/type.is-array":23}],18:[function(require,module,exports){
 'use strict';
 
 var assign = require('@fav/prop.assign');
@@ -561,7 +612,7 @@ function omit(src, omittedProps) {
 
 module.exports = omit;
 
-},{"@fav/prop.assign":3,"@fav/type.is-array":22}],18:[function(require,module,exports){
+},{"@fav/prop.assign":3,"@fav/type.is-array":23}],19:[function(require,module,exports){
 'use strict';
 
 var setDeep = require('@fav/prop.set-deep');
@@ -629,7 +680,7 @@ function isEnumOwnPropDesc(obj, prop) {
 
 module.exports = pickDeep;
 
-},{"@fav/prop.assign-deep":2,"@fav/prop.set-deep":20,"@fav/type.is-array":22,"@fav/type.is-plain-object":24}],19:[function(require,module,exports){
+},{"@fav/prop.assign-deep":2,"@fav/prop.set-deep":21,"@fav/type.is-array":23,"@fav/type.is-plain-object":25}],20:[function(require,module,exports){
 'use strict';
 
 var assign = require('@fav/prop.assign');
@@ -670,7 +721,7 @@ function pick(src, pickedProps) {
 
 module.exports = pick;
 
-},{"@fav/prop.assign":3,"@fav/prop.enum-own-props":10,"@fav/type.is-array":22}],20:[function(require,module,exports){
+},{"@fav/prop.assign":3,"@fav/prop.enum-own-props":11,"@fav/type.is-array":23}],21:[function(require,module,exports){
 'use strict';
 
 var isArray = require('@fav/type.is-array');
@@ -745,7 +796,7 @@ function canHaveProp(obj) {
 
 module.exports = setDeep;
 
-},{"@fav/type.is-array":22}],21:[function(require,module,exports){
+},{"@fav/type.is-array":23}],22:[function(require,module,exports){
 'use strict';
 
 var isPlainObject = require('@fav/type.is-plain-object');
@@ -780,7 +831,7 @@ function visitEachProps(obj, fn, index, count, parentProps) {
 
 module.exports = visit;
 
-},{"@fav/prop.enum-own-props":10,"@fav/type.is-function":23,"@fav/type.is-plain-object":24}],22:[function(require,module,exports){
+},{"@fav/prop.enum-own-props":11,"@fav/type.is-function":24,"@fav/type.is-plain-object":25}],23:[function(require,module,exports){
 'use strict';
 
 function isArray(value) {
@@ -798,7 +849,7 @@ Object.defineProperty(isArray, 'not', {
 
 module.exports = isArray;
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 'use strict';
 
 function isFunction(value) {
@@ -816,7 +867,7 @@ Object.defineProperty(isFunction, 'not', {
 
 module.exports = isFunction;
 
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 'use strict';
 
 function isPlainObject(value) {

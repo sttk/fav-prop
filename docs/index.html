@@ -133,6 +133,110 @@ If a property value of a source object is null or undefined, the property is not
 <p>The destination object.</p>
 <p><strong>Type:</strong> object</p>
 <hr>
+<h3 id="-u-define-immutable-obj-name-value-void-u-"><u>define.immutable(obj, name, value) : void</u></h3>
+<p>Defines an read-only and unenumerable property to the specified object.</p>
+<h4 id="parameters-">Parameters:</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th align="center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em>obj</em></td>
+<td align="center">object</td>
+<td>The target object.</td>
+</tr>
+<tr>
+<td><em>name</em></td>
+<td align="center">string</td>
+<td>The property name.</td>
+</tr>
+<tr>
+<td><em>value</em></td>
+<td align="center"><em>any</em></td>
+<td>The property value.</td>
+</tr>
+</tbody></table>
+<h3 id="-u-define-mutable-obj-name-value-void-u-"><u>define.mutable(obj, name, value) : void</u></h3>
+<p>Defines an writable and unenumerable property to the specified object.</p>
+<h4 id="parameters-">Parameters:</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th align="center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em>obj</em></td>
+<td align="center">object</td>
+<td>The target object.</td>
+</tr>
+<tr>
+<td><em>name</em></td>
+<td align="center">string</td>
+<td>The property name.</td>
+</tr>
+<tr>
+<td><em>value</em></td>
+<td align="center"><em>any</em></td>
+<td>The property value.</td>
+</tr>
+</tbody></table>
+<h3 id="-u-define-override-obj-name-fn-void-u-"><u>define.override(obj, name, fn) : void</u></h3>
+<p>Redefines a property function of the specified object.</p>
+<p>The original function can be accessed by <code><em>name</em>.$uper</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th align="center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em>obj</em></td>
+<td align="center">object</td>
+<td>The target object.</td>
+</tr>
+<tr>
+<td><em>name</em></td>
+<td align="center">string</td>
+<td>The property name.</td>
+</tr>
+<tr>
+<td><em>fn</em></td>
+<td align="center">function</td>
+<td>The property function.</td>
+</tr>
+</tbody></table>
+<h3 id="-u-define-override-obj-namedfn-void-u-"><u>define.override(obj, namedFn) : void</u></h3>
+<p>Redefines a property function of the specified object with named function.</p>
+<p>The original function can be accessed by <code><em>namedFn</em>.$uper</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th align="center">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em>obj</em></td>
+<td align="center">object</td>
+<td>The target object.</td>
+</tr>
+<tr>
+<td><em>namedFn</em></td>
+<td align="center">function</td>
+<td>The named function.</td>
+</tr>
+</tbody></table>
+<hr>
 <h3 id="-u-enumallkeys-obj-array-u-"><u>enumAllKeys(obj) : Array</u></h3>
 <p>Lists enumerable own and inherited property keys of the given object.</p>
 <p>This function returns property keys enumerated with &quot;for-in&quot;, but returns an empty array if <em>obj</em> is nullish.</p>
