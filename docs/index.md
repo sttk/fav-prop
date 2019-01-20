@@ -1,4 +1,4 @@
-# [@fav/prop][repo-url] ver. 1.0.0 API document
+# [@fav/prop][repo-url] ver. 1.1.0 API document
 
 ----
 

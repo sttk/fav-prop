@@ -1,6 +1,6 @@
 {
   "name": "@fav/prop",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Function set related to object properties for all versions of Node.js and major browsers.",
   "main": "index.js",
   "files": [

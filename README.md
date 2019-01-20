@@ -48,7 +48,15 @@ This package provides API documents on [Github.io][api-url] or `docs/index.html`
 
 ## Checked
 
-### Node.js (4〜)
+### Node.js (11〜)
+
+| Platform  |   11   |
+|:---------:|:------:|
+| macOS     |&#x25ef;|
+| Windows10 |&#x25ef;|
+| Linux     |&#x25ef;|
+
+### Node.js (4〜10)
 
 | Platform  |   4    |   5    |   6    |   7    |   8    |   9    |   10   |
 |:---------:|:------:|:------:|:------:|:------:|:------:|:------:|:------:|
@@ -82,7 +90,7 @@ This package provides API documents on [Github.io][api-url] or `docs/index.html`
 
 ## License
 
-Copyright (C) 2018 Takayuki Sato
+Copyright (C) 2018-2019 Takayuki Sato
 
 This program is free software under [MIT][mit-url] License.
 See the file LICENSE in this distribution for more details.
@@ -91,7 +99,7 @@ See the file LICENSE in this distribution for more details.
 [api-url]: https://sttk.github.io/fav-prop/index.html
 [io-img]: http://img.shields.io/badge/API-github.io-ff99cc.svg
 [io-url]: https://sttk.github.io/fav-prop/index.html
-[npm-img]: https://img.shields.io/badge/npm-v1.0.0-blue.svg
+[npm-img]: https://img.shields.io/badge/npm-v1.1.0-blue.svg
 [npm-url]: https://www.npmjs.com/package/@fav/prop
 [mit-img]: https://img.shields.io/badge/license-MIT-green.svg
 [mit-url]: https://opensource.org/licenses/MIT
